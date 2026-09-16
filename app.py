@@ -1,3 +1,5 @@
+import os
+
 import streamlit as st
 
 import auth
@@ -5,7 +7,11 @@ import database as db
 import public_capacitacion
 from config import EMPRESA_NOMBRE, FAVICON_PATH, LOGO_PATH, PAGINAS_REGISTRO
 
-st.set_page_config(page_title=f"{EMPRESA_NOMBRE}", page_icon=FAVICON_PATH, layout="wide")
+# Si el archivo del ícono no existe todavía (por ejemplo, no se subió al
+# repositorio de GitHub), no debe tumbar la app entera antes de mostrar nada
+# — se usa un emoji de respaldo en vez del ícono real.
+_favicon = FAVICON_PATH if os.path.isfile(FAVICON_PATH) else "🎓"
+st.set_page_config(page_title=f"{EMPRESA_NOMBRE}", page_icon=_favicon, layout="wide")
 
 try:
     st.logo(LOGO_PATH, size="large")
