@@ -1,0 +1,8 @@
+streamlit>=1.61
+pandas>=2.0
+bcrypt>=4.0
+firebase-admin>=6.5.0
+openpyxl>=3.1
+fpdf2>=2.7
+qrcode>=7.4
+streamlit-cookies-controller>=0.0.4
