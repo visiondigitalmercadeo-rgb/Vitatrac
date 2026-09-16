@@ -32,16 +32,19 @@ def _sincronizar_usuario_sesion(user):
 
 
 def _logo_centrado(path, width):
+    # Si el archivo del logo no existe (por ejemplo, no se subió todavía al
+    # repositorio de GitHub), no debe tumbar toda la pantalla de login — se
+    # omite la imagen y solo se ve el nombre de la empresa en texto.
     try:
         with open(path, "rb") as f:
             b64 = base64.b64encode(f.read()).decode("ascii")
-        st.markdown(
-            f"<div style='text-align:center;'>"
-            f"<img src='data:image/png;base64,{b64}' width='{width}' /></div>",
-            unsafe_allow_html=True,
-        )
     except Exception:
-        st.image(path, width=width)
+        return
+    st.markdown(
+        f"<div style='text-align:center;'>"
+        f"<img src='data:image/png;base64,{b64}' width='{width}' /></div>",
+        unsafe_allow_html=True,
+    )
 
 
 def do_login(username: str, password: str) -> bool:
