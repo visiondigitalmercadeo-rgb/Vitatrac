@@ -5,7 +5,7 @@ import streamlit as st
 from streamlit_cookies_controller import CookieController
 
 import database as db
-from config import EMPRESA_NOMBRE, LOGO_PATH
+from config import LOGO_PATH
 
 # Nombre de la cookie donde se guarda el token de "recuérdame" — para que,
 # una vez que alguien inicia sesión, la plataforma no lo vuelva a sacar hasta
@@ -110,10 +110,6 @@ def require_login():
     _, col, _ = st.columns([1, 1.2, 1])
     with col:
         _logo_centrado(LOGO_PATH, 320)
-        st.markdown(
-            f"<h3 style='text-align:center;margin-top:0.5rem;'>{EMPRESA_NOMBRE}</h3>",
-            unsafe_allow_html=True,
-        )
         with st.form("login_form"):
             username = st.text_input("Usuario")
             password = st.text_input("Contraseña", type="password")
