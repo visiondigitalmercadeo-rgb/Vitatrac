@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Marca — cámbialo por el nombre/lema reales de tu empresa u organización.
 # ---------------------------------------------------------------------------
 EMPRESA_NOMBRE = "VITATRAC"
-EMPRESA_LEMA = "Plataforma de Capacitación"
+EMPRESA_LEMA = "Su Taller"
 LOGO_PATH = os.path.join(BASE_DIR, "assets", "logo.png")
 FAVICON_PATH = os.path.join(BASE_DIR, "assets", "favicon.png")
 
