@@ -110,6 +110,7 @@ def require_login():
     _, col, _ = st.columns([1, 1.2, 1])
     with col:
         _logo_centrado(LOGO_PATH, 320)
+        st.markdown("<div style='margin-top:1.8rem;'></div>", unsafe_allow_html=True)
         with st.form("login_form"):
             username = st.text_input("Usuario")
             password = st.text_input("Contraseña", type="password")
