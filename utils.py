@@ -145,10 +145,12 @@ def diploma_pdf_bytes(persona_nombre: str, tienda: str, modulo_nombre: str, fech
     pdf.rect(12.5, 12.5, ancho - 25, alto - 25)
     pdf.set_line_width(0.2)
 
-    # -- Logo, centrado arriba ---------------------------------------------
+    # -- Logo, centrado arriba -----------------------------------------------
+    # El logo de VITATRAC es un banner ancho (≈3.16 : 1) — bastante más
+    # bajo que alto, a diferencia de un logo cuadrado o vertical.
     try:
-        logo_w = 50
-        logo_h = logo_w * 0.5135
+        logo_w = 70
+        logo_h = logo_w * (506 / 1600)
         pdf.image(LOGO_PATH, x=(ancho - logo_w) / 2, y=14, w=logo_w)
         y_cursor = 14 + logo_h + 7
     except Exception:
